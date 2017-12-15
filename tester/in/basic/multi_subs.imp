@@ -1,0 +1,9 @@
+VAR
+    a b c
+BEGIN
+    a := 40;
+    b := 50 - a;
+    c := b - 5;
+    d := a - c;
+    WRITE d;
+END

@@ -1,0 +1,17 @@
+VAR
+    a b c d
+BEGIN
+    READ a;
+    READ b;
+    READ c;
+    READ d;
+
+    IF a > b THEN WRITE a;
+    ENDIF
+    IF b < c THEN WRITE b;
+    ENDIF
+    IF c <> d THEN WRITE c;
+    ENDIF
+    IF c = d THEN WRITE d;
+    ENDIF
+END

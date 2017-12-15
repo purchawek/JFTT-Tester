@@ -1,0 +1,6 @@
+VAR
+    a
+BEGIN
+    a := 13;
+    WRITE a;
+END

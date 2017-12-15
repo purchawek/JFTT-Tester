@@ -1,0 +1,6 @@
+VAR
+c
+BEGIN
+READ c;
+WRITE c;
+END

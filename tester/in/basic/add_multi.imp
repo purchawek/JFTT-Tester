@@ -1,0 +1,10 @@
+VAR
+    a b c d
+BEGIN
+    a := 3 + 5;
+    b := a + 2;
+    c := 5 + b;
+    d := c + 4;
+    d := d + 1;
+    WRITE d;
+END
