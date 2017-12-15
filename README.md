@@ -14,7 +14,7 @@ W sytuacji gdy któryś test się wysypie, drukowane jest info o tym, który to 
 * Nie informuje dobrze o rzuconych wyjątkach (info jest szczątkowe ale wiadomo, który plik powoduje problem, więc można potem testować ręcznie)
 
 ### Czego to nie będzie robić? ###
-* Na pewno nie będzie żadnego sprawdzania kodu wynikowego generowanego przez kompilator.
+* Na pewno nie będzie żadnego sprawdzania kodu jakości/długości/wydajności pośredniego generowanego przez kompilator.
 
 
 ### Jak to uruchomić? ###
