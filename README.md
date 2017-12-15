@@ -17,6 +17,11 @@ W sytuacji gdy któryś test się wysypie, drukowane jest info o tym, który to 
 * Na pewno nie będzie żadnego sprawdzania kodu wynikowego generowanego przez kompilator.
 
 
+### Jak to uruchomić? ###
+**python3 tester.py**
+Program musi zostać uruchomiony dokładnie w tym katalogu, w którym jest plik **tester.py**, bo inaczej względne ścieżki wybuchną. Po wszelkie info odsyłam do **--help**
+
+
 ### Jak dodać nowy test? ###
 Trzeba zrobić **dwie** rzeczy:
 * napisać kod źródłowy, który będzie inputem dla kompilatora
