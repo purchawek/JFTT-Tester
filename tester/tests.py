@@ -43,5 +43,20 @@ main = {
         'title': "Tests all conditions in simple ifs",
         'input': ['1', '2', '3', '4'],
         'output': ['2', '3']
+    },
+    'conditions/if_then_else.imp': {
+        'title': "Tests simple if-then-else",
+        'input': ['1', '2'],
+        'output': ['1']
+    },
+    'conditions/all_conditions.imp': {
+        'title': "Tests all kinds of condition in ifs",
+        'input': ['1', '2', '3'],
+        'output': ['2', '1', '2']
+    },
+    'conditions/nested_if_else.imp': {
+        'title': "Tests 3 nested if-then-else",
+        'input': ['3', '1', '2', '4'],
+        'output': ['4']
     }
 }

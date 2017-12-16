@@ -1,0 +1,12 @@
+VAR
+	a b
+BEGIN
+	READ a;
+	READ b;
+
+	IF a >= b THEN 
+		WRITE b;
+	ELSE
+		WRITE a;
+    ENDIF
+END
