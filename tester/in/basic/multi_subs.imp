@@ -1,5 +1,5 @@
 VAR
-    a b c
+    a b c d
 BEGIN
     a := 40;
     b := 50 - a;

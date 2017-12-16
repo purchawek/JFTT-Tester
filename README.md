@@ -21,6 +21,10 @@ W sytuacji gdy któryś test się wysypie, drukowane jest info o tym, który to 
 **python3 tester.py**
 Program musi zostać uruchomiony dokładnie w tym katalogu, w którym jest plik **tester.py**, bo inaczej względne ścieżki wybuchną. Po wszelkie info odsyłam do **--help**
 
+### Żaden test mi nie przechodzi, pomocy! ###
+Obecnie program zakłada, że kompilator przyjmuje kod źródłowy na **stdin**, a kod pośredni zwraca na **stdout**. Obecnie nie ma obsługi kompilatorów wyrzucających kod do pliku (ale może będzie).
+Jeżeli kompilator działa w dokładnie ten sposób, to upewnij się, że podane ścieżki są poprawne. Jeżeli wciąż nie działa - skontaktuj się ze mną.
+
 
 ### Jak dodać nowy test? ###
 Trzeba zrobić **dwie** rzeczy:
