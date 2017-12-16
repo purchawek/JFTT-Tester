@@ -205,14 +205,14 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description=(
             "Prosty skrypt automatyzujący proces"
-            "testowania kompilatora na JFTT."))
+            " testowania kompilatora na JFTT."))
     parser.add_argument('--compiler',
                         help="ścieżka do pliku wykonywalnego kompilatora")
     parser.add_argument('--interpreter',
                         help="ścieżka do pliku wykonywalnego interpretera")
     parser.add_argument('--interpreter_bn',
                         help=("ścieżka do pliku wykonywalnego interpretera"
-                              "dla dużych liczb"))
+                              " dla dużych liczb (nie jest jeszcze wspierany)"))
 
     args = parser.parse_args()
 
