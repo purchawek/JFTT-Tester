@@ -1,0 +1,18 @@
+VAR a b c d
+BEGIN
+READ a;
+READ b;
+c := a - b;
+WRITE c;
+d := b - a;
+WRITE d;
+c := 500 - a;
+c := c - b;
+WRITE c;
+d := c - c;
+WRITE d;
+a := 3 - 5;
+WRITE a;
+a := 7 - 5;
+WRITE a;
+END

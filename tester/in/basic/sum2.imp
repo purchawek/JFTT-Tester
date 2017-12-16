@@ -1,0 +1,17 @@
+VAR a b c d
+BEGIN
+READ a;
+READ b;
+c := a + b;
+WRITE c;
+c := 5 + a;
+c := b + c;
+WRITE c;
+WRITE 20;
+b := 2;
+a := b;
+d := a + c;
+WRITE d;
+a := 3 + 5;
+WRITE a;
+END
