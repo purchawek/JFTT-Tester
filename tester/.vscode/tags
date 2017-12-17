@@ -1,0 +1,59 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+BOLD	../tester.py	/^    BOLD = '\\033[1m'$/;"	kind:variable	line:28
+COMPILER_PATH	../tester.py	/^COMPILER_PATH = "..\/compiler"$/;"	kind:variable	line:17
+CompilationException	../tester.py	/^class CompilationException(Exception):$/;"	kind:class	line:40
+CompilationFailed	../tester.py	/^class CompilationFailed(Exception):$/;"	kind:class	line:36
+ENDC	../tester.py	/^    ENDC = '\\033[0m'$/;"	kind:variable	line:27
+FAIL	../tester.py	/^    FAIL = '\\033[91m'$/;"	kind:variable	line:26
+HEADER	../tester.py	/^    HEADER = '\\033[95m'$/;"	kind:variable	line:22
+INPUT_DIR	../tester.py	/^INPUT_DIR = ".\/in"$/;"	kind:variable	line:12
+INTERPRETER_PATH	../tester.py	/^INTERPRETER_PATH = "..\/interpreter\/interpreter"$/;"	kind:variable	line:18
+NoMetaError	../tester.py	/^class NoMetaError(Exception):$/;"	kind:class	line:32
+OKBLUE	../tester.py	/^    OKBLUE = '\\033[94m'$/;"	kind:variable	line:23
+OKGREEN	../tester.py	/^    OKGREEN = '\\033[92m'$/;"	kind:variable	line:24
+OUTPUT_DIR	../tester.py	/^OUTPUT_DIR = ".\/out"$/;"	kind:variable	line:13
+Summary	../tester.py	/^class Summary():$/;"	kind:class	line:44
+TestSubject	../tester.py	/^class TestSubject:$/;"	kind:class	line:73
+Tester	../tester.py	/^class Tester:$/;"	kind:class	line:166
+UNDERLINE	../tester.py	/^    UNDERLINE = '\\033[4m'$/;"	kind:variable	line:29
+WARNING	../tester.py	/^    WARNING = '\\033[93m'$/;"	kind:variable	line:25
+__init__	../tester.py	/^    def __init__(self):$/;"	kind:member	line:45
+__init__	../tester.py	/^    def __init__(self, *, input_fpath, meta):$/;"	kind:member	line:74
+__init__	../tester.py	/^    def __init__(self, summary):$/;"	kind:member	line:167
+__str__	../tester.py	/^    def __str__(self):$/;"	kind:member	line:52
+_compile	../tester.py	/^    def _compile(self, compiled):$/;"	kind:member	line:78
+argparse	../tester.py	/^import argparse$/;"	kind:namespace	line:2
+args	../tester.py	/^    args = parser.parse_args()$/;"	kind:variable	line:241
+bcolors	../tester.py	/^class bcolors:$/;"	kind:class	line:21
+compile_to_file	../tester.py	/^def compile_to_file(input_fpath, output_fpath):$/;"	kind:function	line:106
+errors	../tester.py	/^errors = {$/;"	kind:variable	line:144
+handle_exc	../tester.py	/^    def handle_exc(self, print_fn, *args):$/;"	kind:member	line:171
+invalid_meta	../tester.py	/^def invalid_meta(input_fpath):$/;"	kind:function	line:131
+load_input	../tester.py	/^def load_input(input_):$/;"	kind:function	line:123
+load_meta	../tester.py	/^def load_meta(input_fpath):$/;"	kind:function	line:158
+main	../tests.py	/^main = {$/;"	kind:variable	line:1
+mkstemp	../tester.py	/^from tempfile import mkstemp$/;"	kind:namespace	line:6
+os	../tester.py	/^import os$/;"	kind:namespace	line:3
+parse_output	../tester.py	/^def parse_output(raw_output):$/;"	kind:function	line:117
+parser	../tester.py	/^    parser = argparse.ArgumentParser($/;"	kind:variable	line:228
+path	../tester.py	/^from os import walk, path$/;"	kind:namespace	line:5
+print_error	../tester.py	/^def print_error(subj, error_name):$/;"	kind:function	line:136
+print_no_meta	../tester.py	/^def print_no_meta(input_fpath):$/;"	kind:function	line:127
+print_passed	../tester.py	/^def print_passed():$/;"	kind:function	line:152
+subprocess	../tester.py	/^import subprocess$/;"	kind:namespace	line:4
+summary	../tester.py	/^    summary = Summary()$/;"	kind:variable	line:252
+test	../tester.py	/^    def test(self, input_, output_):$/;"	kind:member	line:88
+test_all	../tester.py	/^    def test_all(self, dir_):$/;"	kind:member	line:221
+test_dir	../tester.py	/^    def test_dir(self, dir_, fnames):$/;"	kind:member	line:207
+test_imp	../tester.py	/^    def test_imp(self, subj):$/;"	kind:member	line:176
+tester	../tester.py	/^    tester = Tester(summary)$/;"	kind:variable	line:253
+tester.py	../tester.py	1;"	kind:file	line:1
+tests	../tester.py	/^import tests$/;"	kind:namespace	line:8
+tests.py	../tests.py	1;"	kind:file	line:1
+tests_dct	../tester.py	/^tests_dct = tests.main$/;"	kind:variable	line:10
+walk	../tester.py	/^from os import walk, path$/;"	kind:namespace	line:5

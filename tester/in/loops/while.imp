@@ -1,0 +1,9 @@
+VAR
+    a b
+BEGIN
+    a := 5;
+    WHILE a > 0 DO
+        WRITE a;
+        a := a - 1;
+    ENDWHILE
+END

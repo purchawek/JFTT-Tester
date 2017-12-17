@@ -115,7 +115,7 @@ def compile_to_file(input_fpath, output_fpath):
 
 
 def parse_output(raw_output):
-    return [line.split('>')[1].strip()
+    return [int(line.split('>')[1].strip())
             for line in raw_output.split('\n')
             if len(line.split('>')) > 1]
 
