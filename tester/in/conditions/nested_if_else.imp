@@ -9,6 +9,7 @@ BEGIN
 	IF a > b THEN 
 		IF b < c THEN 
 			IF c <> d THEN 
+                WRITE a;
 				WRITE d;
 			ELSE
 				WRITE c;

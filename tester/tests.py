@@ -81,8 +81,23 @@ main = {
     },
     'conditions/if_then_else.imp': {
         'title': "Tests simple if-then-else",
-        'input': [['1', '2']],
-        'output': [['1']]
+        'input': [
+            ['1', '2'],
+            ['4', '3'],
+            ['10', '10']
+        ],
+        'output': [
+            ['1'], ['3'], ['10']
+        ]
+    },
+    'conditions/single_if.imp': {
+        'title': "Single if just to test the jumps",
+        'input': [
+            ['5', '15', '14'], ['10', '10', '11'], ['15', '5', '5']
+        ],
+        'output': [
+            ['5', '15', '15'], ['10'], []
+        ]
     },
     'conditions/all_conditions.imp': {
         'title': "Tests all kinds of condition in ifs",
@@ -91,8 +106,18 @@ main = {
     },
     'conditions/nested_if_else.imp': {
         'title': "Tests 3 nested if-then-else",
-        'input': [['3', '1', '2', '4']],
-        'output': [['4']]
+        'input': [
+            ['3', '1', '2', '4'],
+            ['1', '2', '3', '4'],
+            ['6', '5', '8', '8'],
+            ['6', '5', '2', '1']
+        ],
+        'output': [
+            ['3', '4'],
+            ['1'],
+            ['8'],
+            ['5']
+        ]
     },
     'conditions/more_conditions.imp': {
         'title': "Another test for conditions",
@@ -107,6 +132,17 @@ main = {
             ['11', '21', '11', '11', '21', '11', '33'],
             ['11', '11', '2', '11', '11', '33'],
             ['11', '2', '11', '11', '11', '33']
+        ]
+    },
+    'conditions/small_nested.imp': {
+        'title': "Smaller test for nested (easier to debug)",
+        'input': [
+            ['5', '6'],
+            ['7', '7'],
+            ['10', '6']
+        ],
+        'output': [
+            ['6'], ['7'], []
         ]
     }
 }
