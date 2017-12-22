@@ -1,0 +1,14 @@
+VAR
+a b
+BEGIN
+READ a;
+b := a + 5;
+FOR i FROM b DOWNTO a DO
+    b := a * a;
+    FOR j FROM i TO b DO
+        IF j = b THEN
+        WRITE j;
+        ENDIF
+    ENDFOR
+ENDFOR
+END

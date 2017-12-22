@@ -1,0 +1,9 @@
+VAR
+a b
+BEGIN
+READ a;
+READ b;
+FOR i FROM a TO b DO
+    WRITE i;
+ENDFOR
+END

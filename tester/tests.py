@@ -186,6 +186,21 @@ main = {
             [5, 7, 9, 11, 13]
         ]
     },
+    'loops/for_var.imp': {
+        'title': "Another test for loops with variable range",
+        'input': [
+            [1, 5],
+            [5, 1],
+            [3, 3],
+            [7, 8]
+        ],
+        'output': [
+            [1, 2, 3, 4, 5],
+            [],
+            [3],
+            [7, 8]
+        ]
+    },
     'loops/for_downto.imp': {
         'title': "Basic for loop downto",
         'input': [[]],
@@ -195,6 +210,11 @@ main = {
     },
     'loops/nested_fors.imp': {
         'title': "Tests three nested fors",
+        'input': [[]],
+        'output': [[837]]
+    },
+    'loops/nested_downtos.imp': {
+        'title': "Tests three nested downto fors",
         'input': [[]],
         'output': [[837]]
     },
@@ -224,6 +244,11 @@ main = {
             [0], [10], [2]
         ]
     },
+    'arrays/basic.imp': {
+        'title': "The most basic use of arrays",
+        'input': [[]],
+        'output': [[5, 7, 8]]
+    },
     'algorithms/prime_factors.imp': {
         'title': "Algorithm for finding prime factors of a number",
         'input': [
@@ -239,6 +264,15 @@ main = {
             [0, 1]
         ]
     },
+    'algorithms/sieve.imp': {
+        'title': 'Sieve of Eratosthenes',
+        'input': [[]],
+        'output': [
+            [2, 3, 5, 7, 11, 13, 17, 19, 23,
+             29, 31, 37, 41, 43, 47, 53, 59,
+             61, 67, 71, 73, 79, 83, 89, 97]
+        ]
+    },
     'algorithms/binary.imp': {
         'title': "Algorithm for printing binary representation of a number",
         'input': [
@@ -247,5 +281,64 @@ main = {
         'output': [
             to_bin(5), [], to_bin(33), to_bin(44), to_bin(1024)
         ]
+    },
+    'old/numbers.imp': {
+        'title': "Test for declaring reading and assigning variables",
+        'input': [
+            [13]
+        ],
+        'output': [
+            [0, 1, 2, 10, 100, 10000, 1234567890, 28, 15, 999,
+             555555555, 7777, 999, 11, 707, 7777]
+        ]
+    },
+    'old/fib.imp': {
+        'title': "Tests addition and array assignment performance",
+        'input': [[1]],
+        'output': [[121393]]
+    },
+    'old/factorial.imp': {
+        'title': "Algorithm for measuring performance with factorial",
+        'input': [[20]],
+        'output': [[2432902008176640000]]
+    },
+    'old/fib_factorial.imp': {
+        'title': "Another test for performance. Factorial + Fibonacci",
+        'input': [[20]],
+        'output': [[2432902008176640000, 1771]]
+    },
+    #  'old/tab.imp': {
+    #      'title': "Tests arrays",
+    #      'input':
+    #  }
+    'old/mod_mult.imp': {
+        'title': "Algorithm of modular exponentiation",
+        'input': [[1234567890, 1234567890987654321, 987654321]],
+        'output': [[674106858]]
+    },
+    'old/loopiii.imp': {
+        'title': "Another test for nested fors",
+        'input': [
+            [0, 0, 0],
+            [1, 0, 2]
+        ],
+        'output': [
+            [31000, 40900, 2222010],
+            [31001, 40900, 2222012]
+        ]
+    },
+    'old/for.imp': {
+        'title': "Aaaand another test for fors",
+        'input': [
+            [12, 23, 34]
+        ],
+        'output': [
+            [507, 4379, 0]  # to może być borken >:(
+        ]
+    },
+    'old/sort.imp': {
+        'title': "Sorting algorithm",
+        'input': [[]],
+        'output': [[]]  # ? nie wiem, bo mi nie działa >:(
     }
 }

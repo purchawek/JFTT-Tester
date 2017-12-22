@@ -1,0 +1,10 @@
+VAR arr[3]
+BEGIN
+arr[0] := 5;
+arr[1] := 7;
+arr[2] := 8;
+WRITE arr[0];
+WRITE arr[1];
+WRITE arr[2];
+
+END

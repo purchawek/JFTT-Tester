@@ -35,6 +35,12 @@ Aby tester dobrze działał ważne jest też, aby kompilator zwracał **0**, je�
 Jeżeli kompilator działa w dokładnie ten sposób, to upewnij się, że podane ścieżki są poprawne. Jeżeli wciąż nie działa - skontaktuj się ze mną.
 
 
+### Niektóre testy trwają tak długo, że blokują mi wywołanie pozostałych. Jak żyć? ###
+Opcje są dwie:
+* zoptymalizuj kod generowany przez kompilator. Żaden test nie został stworzony z intencją blokowania, więc coś działa Ci za wolno
+* Jak Ci się nie chce w tym momencie, to możesz dodać nazwę pliku do słownika w pliku **ignored.py** (jest tam przykład), co sprawi, że test nie będzie uruchamiany.
+
+
 ### Jak dodać nowy test? ###
 Trzeba zrobić **dwie** rzeczy:
 * napisać kod źródłowy, który będzie inputem dla kompilatora

@@ -7,11 +7,16 @@ from tempfile import mkstemp
 from enum import Enum
 
 import tests
+import failures
+import ignored
 
 tests_dct = tests.main
+failures_dct = failures.main
+ignored_dct = ignored.main
 
 INPUT_DIR = "./in"
 OUTPUT_DIR = "./out"
+FAILURES_DIR = "./failures"
 
 # You may want to adjust these. Both absolute and relative paths
 # are supported
@@ -48,6 +53,10 @@ class CompilationFailed(Exception):
     pass
 
 
+class CompilationNotFailed(Exception):
+    pass
+
+
 class CompilationException(Exception):
     pass
 
@@ -57,7 +66,9 @@ class Summary():
         self.failed = 0
         self.passed = 0
         self.compilation_failed = 0
+        self.compilation_didnt_fail = 0
         self.no_meta = 0
+        self.ignored = 0
         self.exceptions = 0
 
     def __str__(self):
@@ -72,6 +83,14 @@ class Summary():
         if self.compilation_failed > 0:
             res += (bcolors.FAIL + "Compilation failed: "
                     + str(self.compilation_failed)) + "\n"
+
+        if self.compilation_didnt_fail > 0:
+            res += (bcolors.FAIL + "Compilation didn't fail but it should: "
+                    + str(self.compilation_didnt_fail)) + "\n"
+
+        if self.ignored > 0:
+            res += (bcolors.WARNING + "Ignored tests: "
+                    + str(self.ignored)) + "\n"
 
         if self.exceptions > 0:
             res += (bcolors.FAIL + "Exceptions thrown: "
@@ -89,6 +108,7 @@ class TestSubject:
     def _compile(self, compiled):
         try:
             compile_to_file(self.input_fpath, compiled)
+            self.meta['real_output'] = "Compiled"
         except CompilationFailed:
             self.meta['real_output'] = "Compilation failed"
             raise CompilationFailed()
@@ -96,10 +116,13 @@ class TestSubject:
             self.meta['real_output'] = e
             raise CompilationException()
 
-    def test(self, input_, output_):
+    def test(self, input_, output_, should_run=True):
         self.expected = output_
         compiled = get_compile_file()
         self._compile(compiled)
+        if not should_run:
+            return
+
         try:
             result = subprocess.check_output(
                 [INTERPRETER_PATH, compiled], input=input_
@@ -161,6 +184,11 @@ def load_input(input_):
     return '\n'.join(str(i) for i in input_).encode('utf-8')
 
 
+def print_ignored(input_fpath):
+    print(bcolors.WARNING, "WARNING: Test ignored: ",
+          input_fpath, bcolors.ENDC)
+
+
 def print_no_meta(input_fpath):
     print(bcolors.WARNING, "WARNING: No meta for ", input_fpath, bcolors.ENDC)
 
@@ -182,6 +210,7 @@ errors = {
     'FAIL': "Test failed:",
     'COMP_FAIL': "Unexpected compilation failure:",
     'COMP_EXC': "Unexpected compilation exception:",
+    'DIDNT_FAIL': "Compilation didn't fail, when it should:",
     'INTER_EXC': "Unexpected interpreter exception:"
 }
 
@@ -192,18 +221,19 @@ def print_passed():
     )
 
 
-def load_meta(input_fpath):
+def load_meta(input_fpath, source):
     try:
-        meta = tests_dct[input_fpath.split('/', 2)[2]]
+        meta = source[input_fpath.split('/', 2)[2]]
     except KeyError:
         raise NoMetaError()
     return meta
 
 
 class Tester:
-    def __init__(self, summary):
+    def __init__(self, summary, should_fail=False):
         self.last_ok = False
         self.summary = summary
+        self.should_fail = should_fail
 
     def handle_exc(self, print_fn, *args):
         print()
@@ -218,9 +248,17 @@ class Tester:
             self.handle_exc(invalid_meta, subj.input_fpath)
             return
 
+        if subj.input_fpath in ignored_dct:
+            self.handle_exc(print_ignored, subj.input_fpath)
+            self.summary.ignored += 1
+            return
+
         for in_, out_ in zip(inputs, outputs):
             try:
-                result = subj.test(load_input(in_), out_)
+                result = subj.test(load_input(in_), out_,
+                                   should_run=(not self.should_fail))
+                if self.should_fail:
+                    raise CompilationNotFailed()
                 if not result:
                     self.summary.failed += 1
                     self.handle_exc(print_error, subj, errors['FAIL'])
@@ -237,17 +275,26 @@ class Tester:
             except CompilationException:
                 self.handle_exc(print_error, subj, errors['COMP_EXC'])
                 self.summary.compilation_failed += 1
+            except CompilationNotFailed:
+                self.handle_exc(print_error, subj, errors['DIDNT_FAIL'])
+                self.summary.compilation_didnt_fail += 1
             except RuntimeError:
                 self.handle_exc(print_error, subj, errors['INTER_EXC'])
                 self.summary.exceptions += 1
 
     def test_dir(self, dir_, fnames):
+        if dir_ in ignored_dct:
+            self.handle_exc(print_ignored, dir_)
+            self.summary.ignored += len(fnames)
 
         print(bcolors.HEADER, "\nTesting dir: ", dir_, bcolors.ENDC)
         for fname in fnames:
             input_fpath = path.join(dir_, fname)
             try:
-                meta = load_meta(input_fpath)
+                if self.should_fail:
+                    meta = load_meta(input_fpath, failures_dct)
+                else:
+                    meta = load_meta(input_fpath, tests_dct)
             except NoMetaError:
                 self.handle_exc(print_no_meta, input_fpath)
                 continue
@@ -310,3 +357,12 @@ if __name__ == "__main__":
     tester = Tester(summary)
     tester.test_all(INPUT_DIR)
     print("\n", summary)
+
+    print(bcolors.BOLD, bcolors.HEADER,
+          "TESTS FOR FAILURES STARTING...", bcolors.ENDC)
+
+    fail_summary = Summary()
+    failures_tester = Tester(fail_summary, should_fail=True)
+    failures_tester.test_all(FAILURES_DIR)
+
+    print("\n", fail_summary)
