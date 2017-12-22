@@ -1,0 +1,17 @@
+VAR
+max index inneridx base curr
+BEGIN
+    READ base;
+    READ max;
+    index := 0;
+    WHILE index <= max DO
+        curr := 1;
+        inneridx := 1;
+        WHILE inneridx <= index DO
+            curr := curr * base;
+            inneridx := inneridx + 1;
+        ENDWHILE
+        WRITE curr;
+        index := index + 1;
+    ENDWHILE
+END

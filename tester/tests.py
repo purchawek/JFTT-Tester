@@ -151,5 +151,38 @@ main = {
         'output': [
             [5, 4, 3, 2, 1]
         ]
+    },
+    'loops/nested_while.imp': {
+        'title': "Tests nested whiles",
+        'input': [[]],
+        'output': [
+            [
+                3, 3, 2, 3, 2, 1, 3, 3, 2,
+                3, 2, 1, 3, 3, 2, 3, 2, 1,
+            ]
+        ]
+    },
+    'loops/while_multi.imp': {
+        'title': "Tests while with multiplication",
+        'input': [
+            [2, 5],
+            [3, 7],
+            [4, 8]
+        ],
+        'output': [
+            [2**i for i in range(6)],
+            [3**i for i in range(8)],
+            [4**i for i in range(9)]
+        ]
+    },
+    'multi/num_num.imp': {
+        'title': "Multiplication of two constants",
+        'input': [[]],
+        'output': [[15, 0, 36, 20]]
+    },
+    'multi/id_num.imp': {
+        'title': "Multiplication of identifier and constant",
+        'input': [[0], [1], [7], [10]],
+        'output': [[0], [10], [70], [100]]
     }
 }

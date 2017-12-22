@@ -22,7 +22,13 @@ W sytuacji gdy któryś test się wysypie, drukowane jest info o tym, który to 
 Program musi zostać uruchomiony dokładnie w tym katalogu, w którym jest plik **tester.py**, bo inaczej względne ścieżki wybuchną. Po wszelkie info odsyłam do **--help**
 
 ### Żaden test mi nie przechodzi, pomocy! ###
-Obecnie program zakłada, że kompilator przyjmuje kod źródłowy na **stdin**, a kod pośredni zwraca na **stdout**. Obecnie nie ma obsługi kompilatorów wyrzucających kod do pliku (ale może będzie).
+Obecnie wspierane są trzy tryby działania kompilatora, każdy z nich zakłada, że kod źródłowy jest podawany na stdin:
+* kod pośredni może być zwracany na **stdout**, jest to tryb domyślny i nie trzeba podawać żadnej flagi aby to działało
+* kod pośredni może być zwracany do pliku, którego nazwa jest podawana jako parametr przy wywołaniu kompilatora (ale nie jako nazwany parametr, to może później). Ten tryb wymaga podania flagi **--compiler_out_to_param_file**
+* kod pośredni może być zwracany do pliku, którego nazwa jest stała i taka sama dla każdego pliku. Wówczas należy ustawić flagę **--compiler_out_to_const_file** i jako wartość podać ścieżkę do pliku wynikowego, do którego zwracać będzie kompilator. Należy się tutaj liczyć z faktem, że tester będzie na bieżąco ten plik usuwać po każdym teście.
+
+**UWAGA** tryb 2. i 3. są jeszcze eksperymentalne - dodałem je, ale nie testowałem ich jeszcze na niczym, bo mój kompilator nie działa w ten sposób. Być może nie działają. Poczekam aż znajdzie się ktoś na tyle odważny, aby to sprawdzić albo sam to zrobię za jakiś czas.
+
 Jeżeli kompilator działa w dokładnie ten sposób, to upewnij się, że podane ścieżki są poprawne. Jeżeli wciąż nie działa - skontaktuj się ze mną.
 
 

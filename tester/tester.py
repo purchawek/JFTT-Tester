@@ -2,8 +2,10 @@
 import argparse
 import os
 import subprocess
+import sys
 from os import walk, path
 from tempfile import mkstemp
+from enum import Enum
 
 import tests
 
@@ -16,6 +18,16 @@ OUTPUT_DIR = "./out"
 # are supported
 COMPILER_PATH = "../compiler"
 INTERPRETER_PATH = "../interpreter/interpreter"
+
+
+class CompilerModes(Enum):
+    STDIN_STDOUT = 1
+    PARAM_FILE_OUT = 2
+    CONST_FILE_OUT = 3
+
+
+COMPILER_MODE = CompilerModes.STDIN_STDOUT
+COMPILER_PARAMS = {}
 
 
 class bcolors:
@@ -87,7 +99,7 @@ class TestSubject:
 
     def test(self, input_, output_):
         self.expected = output_
-        compiled = mkstemp()[1]
+        compiled = get_compile_file()
         self._compile(compiled)
         try:
             result = subprocess.check_output(
@@ -103,15 +115,46 @@ class TestSubject:
         return self.meta['real_output'] == output_
 
 
+def get_compile_file():
+    if COMPILER_MODE != CompilerModes.CONST_FILE_OUT:
+        return mkstemp()[1]
+    else:
+        return COMPILER_PARAMS['OUTPUT_FILE']
+
+
 def compile_to_file(input_fpath, output_fpath):
-    with open(input_fpath) as input_f:
-        compiled = subprocess.check_output(
-            [COMPILER_PATH], stdin=input_f
-        )
-        if 'Syntax error' in compiled.decode('utf-8'):
-            raise CompilationFailed()
-        with open(output_fpath, 'wb') as output_f:
-            output_f.write(compiled)
+    if COMPILER_MODE == CompilerModes.STDIN_STDOUT:
+        with open(input_fpath) as input_f:
+            compiled = subprocess.check_output(
+                [COMPILER_PATH], stdin=input_f
+            )
+            # TODO weak, return-code would be better
+            if 'Syntax error' in compiled.decode('utf-8'):
+                raise CompilationFailed()
+            with open(output_fpath, 'wb') as output_f:
+                output_f.write(compiled)
+
+    elif COMPILER_MODE == CompilerModes.PARAM_FILE_OUT:
+        with open(input_fpath) as input_f:
+            subprocess.run(
+                [COMPILER_PATH, output_fpath], stdin=input_f
+            )
+            # TODO also weak
+            with open(output_fpath) as output_f:
+                for line in output_f:
+                    if 'Syntax error' in line:
+                        raise CompilationFailed()
+
+    elif COMPILER_MODE == CompilerModes.CONST_FILE_OUT:
+        with open(input_fpath) as input_f:
+            subprocess.run(
+                [COMPILER_PATH], stdin=input_f
+            )
+            # TODO here aswell
+            with open(output_fpath) as output_f:
+                for line in output_f:
+                    if 'Syntax error' in line:
+                        raise CompilationFailed()
 
 
 def parse_output(raw_output):
@@ -238,6 +281,20 @@ if __name__ == "__main__":
         help=("ścieżka do pliku wykonywalnego interpretera"
               " dla dużych liczb (nie jest jeszcze wspierany)"))
 
+    parser.add_argument(
+        '--compiler_out_to_param_file',
+        help=("flaga oznaczająca, że kompilator zwraca"
+              " skompilowany kod do pliku"
+              " podawanego mu jako parametr"),
+        action='store_true'
+    )
+
+    parser.add_argument(
+        '--compiler_out_to_const_file',
+        help=("flaga oznaczająca, że kompilator zwraca skompilowany"
+              " kod zawsze do stałego pliku")
+    )
+
     args = parser.parse_args()
 
     if args.compiler is not None:
@@ -248,6 +305,12 @@ if __name__ == "__main__":
         pass
         #  not supported yet
         #  INTERPRETER_BN_PATH = args.interpreter_bn
+
+    if args.compiler_out_to_param_file:
+        COMPILER_MODE = CompilerModes.PARAM_FILE_OUT
+
+    if args.compiler_out_to_const_file:
+        COMPILER_PARAMS['OUTPUT_FILE'] = args.compiler_out_to_const_file
 
     summary = Summary()
     tester = Tester(summary)

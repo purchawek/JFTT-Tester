@@ -1,0 +1,12 @@
+VAR
+a b c d
+BEGIN
+    a := 5 * 3;
+    b := 0 * 5;
+    c := 6 * 6;
+    d := 20 * 1;
+    WRITE a;
+    WRITE b;
+    WRITE c;
+    WRITE d;
+END

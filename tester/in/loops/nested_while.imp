@@ -1,0 +1,17 @@
+VAR
+a b c d
+BEGIN
+    a := 3;
+    WHILE a > 0 DO
+        b := 3;
+        a := a - 1;
+        WHILE b > 0 DO
+            c := 4;
+            WHILE c > b DO
+                c := c - 1;
+                WRITE c;
+            ENDWHILE
+            b := b - 1;
+        ENDWHILE
+    ENDWHILE
+END

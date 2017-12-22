@@ -1,0 +1,7 @@
+VAR
+a b
+BEGIN
+    READ b;
+    a := b * 10;
+    WRITE a;
+END
