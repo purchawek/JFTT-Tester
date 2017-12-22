@@ -1,0 +1,8 @@
+VAR
+a b[10]
+BEGIN
+FOR i FROM 0 TO 9 DO
+b[i] := i * i;
+ENDFOR
+a := b[i];
+END

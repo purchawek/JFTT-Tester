@@ -1,4 +1,4 @@
-VAR a b c d
+VAR a b c d e
 BEGIN
     a := 5 / 3;
     WRITE a;
@@ -8,4 +8,6 @@ BEGIN
     WRITE c;
     d := 20 / 37;
     WRITE d;
+    e := 999 / 0;
+    WRITE e;
 END

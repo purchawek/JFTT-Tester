@@ -166,6 +166,16 @@ main = {
             ]
         ]
     },
+    'loops/nested_while2.imp': {
+        'title': "Another test for nested whiles",
+        'input': [
+            [1, 2, 5]
+        ],
+        'output':
+        [
+            [4, 3, 2, 1]
+        ]
+    },
     'loops/while_multi.imp': {
         'title': "Tests while with multiplication",
         'input': [
@@ -231,7 +241,7 @@ main = {
     'divide/basic.imp': {
         'title': "Basic division of two constants",
         'input': [[]],
-        'output': [[1, 3, 20, 0]]
+        'output': [[1, 3, 20, 0, 0]]
     },
     'divide/modulo.imp': {
         'title': "The most basic modulo",
@@ -239,9 +249,10 @@ main = {
             [5, 1],
             [10, 33],
             [12, 5],
+            [30, 0]
         ],
         'output': [
-            [0], [10], [2]
+            [0], [10], [2], [0]
         ]
     },
     'arrays/basic.imp': {

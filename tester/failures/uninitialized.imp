@@ -1,0 +1,6 @@
+VAR
+a b
+BEGIN
+READ b;
+b := a;
+END

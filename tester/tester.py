@@ -270,11 +270,21 @@ class Tester:
                 self.handle_exc(print_no_meta, subj.input_fpath)
                 self.summary.no_meta += 1
             except CompilationFailed:
-                self.handle_exc(print_error, subj, errors['COMP_FAIL'])
-                self.summary.compilation_failed += 1
+                if not self.should_fail:
+                    self.handle_exc(print_error, subj, errors['COMP_FAIL'])
+                    self.summary.compilation_failed += 1
+                else:
+                    print_passed()
+                    self.summary.passed += 1
+                    self.last_ok = True
             except CompilationException:
-                self.handle_exc(print_error, subj, errors['COMP_EXC'])
-                self.summary.compilation_failed += 1
+                if not self.should_fail:
+                    self.handle_exc(print_error, subj, errors['COMP_EXC'])
+                    self.summary.compilation_failed += 1
+                else:
+                    print_passed()
+                    self.summary.passed += 1
+                    self.last_ok = True
             except CompilationNotFailed:
                 self.handle_exc(print_error, subj, errors['DIDNT_FAIL'])
                 self.summary.compilation_didnt_fail += 1

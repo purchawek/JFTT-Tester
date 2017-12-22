@@ -1,0 +1,5 @@
+VAR
+a b[10]
+BEGIN
+b := 5;
+END

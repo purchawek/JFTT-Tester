@@ -1,0 +1,6 @@
+VAR
+a b a
+BEGIN
+a := 5;
+WRITE a;
+END
