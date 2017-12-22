@@ -29,6 +29,9 @@ Obecnie wspierane są trzy tryby działania kompilatora, każdy z nich zakłada,
 
 **UWAGA** tryb 2. i 3. są jeszcze eksperymentalne - dodałem je, ale nie testowałem ich jeszcze na niczym, bo mój kompilator nie działa w ten sposób. Być może nie działają. Poczekam aż znajdzie się ktoś na tyle odważny, aby to sprawdzić albo sam to zrobię za jakiś czas.
 
+Aby tester dobrze działał ważne jest też, aby kompilator zwracał **0**, jeżeli proces kompilacji się powiódł oraz dowolną niezerową wartość w przeciwnym wypadku (wartość zwracana w **main**)
+
+
 Jeżeli kompilator działa w dokładnie ten sposób, to upewnij się, że podane ścieżki są poprawne. Jeżeli wciąż nie działa - skontaktuj się ze mną.
 
 

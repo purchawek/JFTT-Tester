@@ -1,0 +1,8 @@
+VAR
+a b
+BEGIN
+READ a;
+READ b;
+a := a % b;
+WRITE a;
+END

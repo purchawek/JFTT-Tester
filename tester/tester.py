@@ -2,7 +2,6 @@
 import argparse
 import os
 import subprocess
-import sys
 from os import walk, path
 from tempfile import mkstemp
 from enum import Enum
@@ -125,36 +124,31 @@ def get_compile_file():
 def compile_to_file(input_fpath, output_fpath):
     if COMPILER_MODE == CompilerModes.STDIN_STDOUT:
         with open(input_fpath) as input_f:
-            compiled = subprocess.check_output(
-                [COMPILER_PATH], stdin=input_f
-            )
-            # TODO weak, return-code would be better
-            if 'Syntax error' in compiled.decode('utf-8'):
+            try:
+                compiled = subprocess.check_output(
+                    [COMPILER_PATH], stdin=input_f
+                )
+            except subprocess.CalledProcessError:
                 raise CompilationFailed()
+
             with open(output_fpath, 'wb') as output_f:
                 output_f.write(compiled)
 
     elif COMPILER_MODE == CompilerModes.PARAM_FILE_OUT:
         with open(input_fpath) as input_f:
-            subprocess.run(
+            return_code = subprocess.call(
                 [COMPILER_PATH, output_fpath], stdin=input_f
             )
-            # TODO also weak
-            with open(output_fpath) as output_f:
-                for line in output_f:
-                    if 'Syntax error' in line:
-                        raise CompilationFailed()
+            if return_code != 0:
+                raise CompilationFailed()
 
     elif COMPILER_MODE == CompilerModes.CONST_FILE_OUT:
         with open(input_fpath) as input_f:
-            subprocess.run(
+            return_code = subprocess.call(
                 [COMPILER_PATH], stdin=input_f
             )
-            # TODO here aswell
-            with open(output_fpath) as output_f:
-                for line in output_f:
-                    if 'Syntax error' in line:
-                        raise CompilationFailed()
+            if return_code != 0:
+                raise CompilationFailed()
 
 
 def parse_output(raw_output):

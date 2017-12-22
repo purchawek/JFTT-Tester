@@ -1,0 +1,15 @@
+VAR
+a
+BEGIN
+a := 0;
+FOR i FROM 1 TO 3 DO
+    FOR j FROM i TO 6 DO
+        FOR k FROM j TO 8 DO
+            a := a + i;
+            a := a + j;
+            a := a + k;
+        ENDFOR
+    ENDFOR
+ENDFOR
+WRITE a;
+END

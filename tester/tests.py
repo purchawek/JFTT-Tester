@@ -1,3 +1,7 @@
+def to_bin(n):
+    return [int(i) for i in list(reversed(format(n, 'b')))]
+
+
 main = {
     'basic/read_put.imp': {
         'title': "Tests assignment, read and put",
@@ -175,6 +179,25 @@ main = {
             [4**i for i in range(9)]
         ]
     },
+    'loops/for.imp': {
+        'title': "Basic for loop with changing boundaries",
+        'input': [[]],
+        'output': [
+            [5, 7, 9, 11, 13]
+        ]
+    },
+    'loops/for_downto.imp': {
+        'title': "Basic for loop downto",
+        'input': [[]],
+        'output': [
+            list(reversed(range(1, 11)))
+        ]
+    },
+    'loops/nested_fors.imp': {
+        'title': "Tests three nested fors",
+        'input': [[]],
+        'output': [[837]]
+    },
     'multi/num_num.imp': {
         'title': "Multiplication of two constants",
         'input': [[]],
@@ -184,5 +207,45 @@ main = {
         'title': "Multiplication of identifier and constant",
         'input': [[0], [1], [7], [10]],
         'output': [[0], [10], [70], [100]]
+    },
+    'divide/basic.imp': {
+        'title': "Basic division of two constants",
+        'input': [[]],
+        'output': [[1, 3, 20, 0]]
+    },
+    'divide/modulo.imp': {
+        'title': "The most basic modulo",
+        'input': [
+            [5, 1],
+            [10, 33],
+            [12, 5],
+        ],
+        'output': [
+            [0], [10], [2]
+        ]
+    },
+    'algorithms/prime_factors.imp': {
+        'title': "Algorithm for finding prime factors of a number",
+        'input': [
+            [1024],
+            [771],
+            [123109],
+            [0]
+        ],
+        'output': [
+            [2, 10],
+            [3, 1, 257, 1],
+            [7, 1, 43, 1, 409, 1],
+            [0, 1]
+        ]
+    },
+    'algorithms/binary.imp': {
+        'title': "Algorithm for printing binary representation of a number",
+        'input': [
+            [5], [0], [33], [44], [1024]
+        ],
+        'output': [
+            to_bin(5), [], to_bin(33), to_bin(44), to_bin(1024)
+        ]
     }
 }

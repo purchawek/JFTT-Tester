@@ -1,0 +1,8 @@
+VAR
+a
+BEGIN
+a := 10;
+FOR i FROM a DOWNTO 1 DO
+    WRITE i;
+ENDFOR
+END
