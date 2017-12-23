@@ -8,5 +8,4 @@
 
 """
 main = {
-    './failures'
 }

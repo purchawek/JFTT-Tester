@@ -298,6 +298,15 @@ main = {
             to_bin(5), [], to_bin(33), to_bin(44), to_bin(1024)
         ]
     },
+    'algorithms/bubblesort.imp': {
+        'title': "Bubble sort algorithm",
+        'input': [
+            []
+        ],
+        'output': [
+            [3, 3, 5, 8, 15, 16, 19, 24, 40, 43]
+        ]
+    },
     'old/numbers.imp': {
         'title': "Test for declaring reading and assigning variables",
         'input': [
@@ -321,12 +330,18 @@ main = {
     'old/fib_factorial.imp': {
         'title': "Another test for performance. Factorial + Fibonacci",
         'input': [[20]],
-        'output': [[2432902008176640000, 1771]]
+        'output': [[2432902008176640000, 17711]]
     },
-    #  'old/tab.imp': {
-    #      'title': "Tests arrays",
-    #      'input':
-    #  }
+    'old/tab.imp': {
+        'title': "Tests arrays",
+        'input': [[]],
+        'output': [
+            [0, 23, 44, 63, 80, 95, 108,
+             119, 128, 135, 140, 143, 144,
+             143, 140, 135, 128, 119, 108,
+             95, 80, 63, 44, 23, 0]
+        ]
+    },
     'old/mod_mult.imp': {
         'title': "Algorithm of modular exponentiation",
         'input': [[1234567890, 1234567890987654321, 987654321]],
@@ -349,12 +364,18 @@ main = {
             [12, 23, 34]
         ],
         'output': [
-            [507, 4379, 0]  # to może być borken >:(
+            [507, 4379, 0]
         ]
     },
     'old/sort.imp': {
         'title': "Sorting algorithm",
         'input': [[]],
-        'output': [[]]  # ? nie wiem, bo mi nie działa >:(
+        'output': [
+            [5, 2, 10, 4, 20, 8, 17, 16, 11,
+             9, 22, 18, 21, 13, 19, 3, 15, 6,
+             7, 12, 14, 1, 1234567890, 1, 2, 3,
+             4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
+             15, 16, 17, 18, 19, 20, 21, 22]
+        ]
     }
 }
