@@ -218,6 +218,11 @@ main = {
             list(reversed(range(1, 11)))
         ]
     },
+    'loops/for_from_0.imp': {
+        'title': "Tests FOR iterator starting at 0",
+        'input': [[5], [0]],
+        'output': [list(range(6)), [0]]
+    },
     'loops/nested_fors.imp': {
         'title': "Tests three nested fors",
         'input': [[]],

@@ -1,0 +1,8 @@
+VAR
+a
+BEGIN
+READ a;
+FOR i FROM 0 TO a DO
+    WRITE i;
+ENDFOR
+END

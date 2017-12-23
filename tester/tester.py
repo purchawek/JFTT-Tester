@@ -296,6 +296,7 @@ class Tester:
         if dir_ in ignored_dct:
             self.handle_exc(print_ignored, dir_)
             self.summary.ignored += len(fnames)
+            return
 
         print(bcolors.HEADER, "\nTesting dir: ", dir_, bcolors.ENDC)
         for fname in fnames:
