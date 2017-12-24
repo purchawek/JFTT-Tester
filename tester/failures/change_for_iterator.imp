@@ -1,0 +1,6 @@
+VAR
+BEGIN
+	FOR i FROM 0 TO 10 DO
+		i := 10;
+	ENDFOR
+END
