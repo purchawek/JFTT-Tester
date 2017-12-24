@@ -1,0 +1,5 @@
+VAR
+	a tab[10]
+BEGIN
+	tab[a] := 3;
+END

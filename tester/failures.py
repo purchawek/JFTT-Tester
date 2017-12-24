@@ -45,5 +45,15 @@ main = {
         'title': "Test of accessing for iterator outside the loop",
         'input': [[]],
         'output': [[]]
+    },
+    'change_for_iterator.imp': {
+        'title': 'Test for changing for iterator',
+        'input': [[]],
+        'output': [[]]
+    },
+    'undeclared_array_index.imp': {
+        'title': 'Test for use undeclare variable as index in array',
+        'input': [[]],
+        'output': [[]]
     }
 }
