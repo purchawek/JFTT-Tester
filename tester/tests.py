@@ -275,8 +275,8 @@ main = {
         'input': [[]],
         'output': [[5, 7, 8]]
     },
-    'arrays/advanced.imp': {
-        'title': "Test with no const indexes",
+    'arrays/sums.imp': {
+        'title': "Tests sums of elements at variable positions",
         'input': [[10]],
         'output': [[24, 3, 4, 24, 10, 3, 4, 5, 6]]
     },
