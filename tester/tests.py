@@ -149,6 +149,11 @@ main = {
             [6], [7], []
         ]
     },
+    'conditions/every_case_if.imp': {
+        'title': 'Test for every condition',
+        'input': [[]],
+        'output': [[1, 4, 6, 2, 5, 6, 1, 3, 5]]
+    },
     'loops/while.imp': {
         'title': "The most basic example of a while loop",
         'input': [[]],
@@ -264,6 +269,11 @@ main = {
         'title': "The most basic use of arrays",
         'input': [[]],
         'output': [[5, 7, 8]]
+    },
+    'arrays/advanced.imp': {
+        'title': "Test with no const indexes",
+        'input': [[10]],
+        'output': [[24, 3, 4, 24, 10, 3, 4, 5, 6]]
     },
     'algorithms/prime_factors.imp': {
         'title': "Algorithm for finding prime factors of a number",
