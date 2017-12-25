@@ -1,0 +1,64 @@
+VAR
+	a b c
+BEGIN
+	a := 400;
+	b := 300;
+
+	c := a - b;
+	WRITE c;
+	c := a - b;
+	WRITE c;
+	c := 400 - b;
+	WRITE c;
+	c := a - 300;
+	WRITE c;
+	c := 400 - 300;
+	WRITE c;
+
+
+	c := a + b;
+	WRITE c;
+	c := a + b;
+	WRITE c;
+	c := 400 + b;
+	WRITE c;
+	c := a + 300;
+	WRITE c;
+	c := 400 + 300;
+	WRITE c;
+
+	c := a * b;
+	WRITE c;
+	c := a * b;
+	WRITE c;
+	c := 400 * b;
+	WRITE c;
+	c := a * 300;
+	WRITE c;
+	c := 400 * 300;
+	WRITE c;
+
+	c := a % b;
+	WRITE c;
+	c := a % b;
+	WRITE c;
+	c := 400 % b;
+	WRITE c;
+	c := a % 300;
+	WRITE c;
+	c := 400 % 300;
+	WRITE c;
+
+	c := a / b;
+	WRITE c;
+	c := a / b;
+	WRITE c;
+	c := 400 / b;
+	WRITE c;
+	c := a / 300;
+	WRITE c;
+	c := 400 / 300;
+	WRITE c;
+
+END
+
