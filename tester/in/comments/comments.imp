@@ -2,13 +2,13 @@
 co tam?)
 VAR (A tutaj?)
     (Moze tu?
-    )a b
+    )a(?)b(?)
 BEGIN (Wszystko moze sie zdarzyc)
     (Trzeba wiec uwazac
     
     
-    )a := 5;  (Zwlaszcza wiadomo u kogo)
+    )a(?):=(?)5(?);  (Zwlaszcza wiadomo u kogo)
 
-    WRITE a;
+    WRITE a(?);
 END
 (Halo?)

@@ -1,0 +1,23 @@
+VAR a b arr[10] c d
+BEGIN
+	a := 3;
+	b := 4;
+	c := 5;
+	d := 6;
+	READ arr[d];
+	arr[a] := a;
+	arr[b] := b;
+	arr[c] := arr[a] + arr[b];
+	arr[c] := arr[c] + b;
+	arr[c] := arr[d] + arr[c];
+	arr[c] := arr[c] + a;
+	WRITE arr[5];
+	WRITE arr[a];
+	WRITE arr[b];
+	WRITE arr[c];
+	WRITE arr[d];
+	WRITE a;
+	WRITE b;
+	WRITE c;
+	WRITE d;
+END

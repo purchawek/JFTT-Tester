@@ -2,6 +2,7 @@ VAR
 a b
 BEGIN
     READ b;
-    a := b * 10;
+    a := b * 5;
+    a := 2 * a;
     WRITE a;
 END
