@@ -73,6 +73,11 @@ main = {
             [0, 1, 2, 7, 13]
         ]
     },
+    'basic/const_var_operations.imp': {
+        'title': "Tests comments in most combinations",
+        'input': [[]],
+        'output': [[100] * 5 + [700] * 5 + [120000] * 5 + [100] * 5 + [1] * 5]
+    },
     'comments/comments.imp': {
         'title': "Tests comments in most combinations",
         'input': [[]],
