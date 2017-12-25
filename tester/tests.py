@@ -238,6 +238,11 @@ main = {
         'input': [[]],
         'output': [[837]]
     },
+    'loops/without_iteration.imp': {
+        'title': "Tests for loops without result",
+        'input': [[]],
+        'output': [[]]
+    },
     'multi/num_num.imp': {
         'title': "Multiplication of two constants",
         'input': [[]],
