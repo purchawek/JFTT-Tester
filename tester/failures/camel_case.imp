@@ -1,0 +1,5 @@
+BEGIN
+	a varVar
+BEGIN
+	a := 123;
+END

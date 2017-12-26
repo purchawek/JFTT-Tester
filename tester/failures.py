@@ -55,5 +55,10 @@ main = {
         'title': 'Test for use undeclare variable as index in array',
         'input': [[]],
         'output': [[]]
+    },
+    'camel_case.imp': {
+        'title': '(C/c)amelCase',
+        'input': [[]],
+        'output': [[]]
     }
 }

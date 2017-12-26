@@ -73,6 +73,11 @@ main = {
             [0, 1, 2, 7, 13]
         ]
     },
+    'basic/const_var_operations.imp': {
+        'title': "Tests comments in most combinations",
+        'input': [[]],
+        'output': [[100] * 5 + [700] * 5 + [120000] * 5 + [100] * 5 + [1] * 5]
+    },
     'comments/comments.imp': {
         'title': "Tests comments in most combinations",
         'input': [[]],
@@ -322,6 +327,20 @@ main = {
             [3, 3, 5, 8, 15, 16, 19, 24, 40, 43]
         ]
     },
+    'algorithms/palindrome.imp': {
+        'title': '1 if input num is palindrom, 0 otherwise',
+        'input': [
+            [12321],
+            [1010101],
+            [111111],
+            [10001],
+            [100001],
+            [123123123],
+            [100101],
+            [1111231111]
+        ],
+        'output': [[1], [1], [1], [1], [1], [0], [0], [0]]
+    },
     'old/numbers.imp': {
         'title': "Test for declaring reading and assigning variables",
         'input': [
@@ -392,5 +411,11 @@ main = {
              4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
              15, 16, 17, 18, 19, 20, 21, 22]
         ]
+    },
+    'mix/ultras.imp': {
+        'title': 'without any special reason',
+        'input': [[]],
+        'output':
+        [[2, 37, 11, 12, 13, 13, 12, 11, 4096 ]]
     }
 }
