@@ -57,7 +57,7 @@ main = {
         'output': [[]]
     },
     'camel_case.imp': {
-        'title': '(C/c)amelCae',
+        'title': '(C/c)amelCase',
         'input': [[]],
         'output': [[]]
     }
