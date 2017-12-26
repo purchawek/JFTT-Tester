@@ -1,0 +1,22 @@
+VAR
+	n i j palindrome tab[100000] tabrev[100000]
+BEGIN
+	READ n;
+	i := 0;
+	WHILE n > 0 DO
+		tab[i] := n % 10;
+		i := i + 1;
+		n := n / 10;
+	ENDWHILE
+	palindrome := 1;
+	j := 0;
+	WHILE i > 0 DO
+		i := i - 1;
+		IF tab[i] <> tab[j] THEN
+			palindrome := 0;
+		ENDIF
+		j := j + 1;
+	ENDWHILE
+	WRITE palindrome;
+END
+
