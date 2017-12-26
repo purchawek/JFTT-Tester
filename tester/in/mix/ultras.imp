@@ -1,5 +1,5 @@
 VAR
-	a b c tab[1234567890123] d e f
+	a b c tab[100000] d e f
 BEGIN
 	a := 123;
 	a := a * a;
