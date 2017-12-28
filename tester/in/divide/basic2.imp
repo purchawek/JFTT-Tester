@@ -1,0 +1,13 @@
+VAR
+	a b c
+BEGIN
+	a := 110;
+	FOR i FROM 107 TO 113 DO
+		b := i / a;
+		c := i % a;
+		WRITE b;
+		WRITE c;
+	ENDFOR
+
+END
+

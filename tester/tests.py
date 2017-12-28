@@ -261,7 +261,12 @@ main = {
     'divide/basic.imp': {
         'title': "Basic division of two constants",
         'input': [[]],
-        'output': [[1, 3, 20, 0, 0]]
+        'output': [[1, 3, 20, 0, 0, 0, 0 , 0]]
+    },
+    'divide/basic2.imp': {
+        'title': "Basic division and mod",
+        'input': [[]],
+        'output': [[0, 107, 0, 108, 0, 109, 1, 0, 1, 1, 1, 2, 1, 3]]
     },
     'divide/modulo.imp': {
         'title': "The most basic modulo",

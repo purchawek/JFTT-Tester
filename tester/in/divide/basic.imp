@@ -10,4 +10,10 @@ BEGIN
     WRITE d;
     e := 999 / 0;
     WRITE e;
+    e := 2 / 0;
+    WRITE e;
+    e := 1 / 0;
+    WRITE e;
+    e := 0 / 0;
+    WRITE e;
 END
