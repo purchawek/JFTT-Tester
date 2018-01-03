@@ -21,6 +21,11 @@ main = {
         'input': [[]],
         'output': [[]]
     },
+    'uninitialized3.imp': {
+        'title': "Another test for uninitialized",
+        'input': [[]],
+        'output': [[]]
+    },
     'invalid_name.imp': {
         'title': "Tests invalid variable name",
         'input': [[]],
