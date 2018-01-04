@@ -1,0 +1,10 @@
+VAR
+a b
+BEGIN
+READ b;
+IF b > 5 THEN
+	a := 3;
+ELSE
+	WRITE a;
+ENDIF
+END
