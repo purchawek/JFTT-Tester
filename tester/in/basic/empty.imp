@@ -1,0 +1,4 @@
+VAR
+BEGIN
+    WRITE 1;
+END

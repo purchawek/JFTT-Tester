@@ -1,8 +1,18 @@
 def to_bin(n):
     return [int(i) for i in list(reversed(format(n, 'b')))]
 
+def get_sorted_arrays(n, m):
+    a = [i for i in range(1, n)]
+    b = [i for i in range(1, m)]
+    return a + [0] + b + [0]
+
 
 main = {
+    'basic/empty.imp': {
+        'title': "No declarations, one command",
+        'input': [[]],
+        'output': [[1]]
+    },
     'basic/read_put.imp': {
         'title': "Tests assignment, read and put",
         'input': [[10]],
@@ -77,6 +87,11 @@ main = {
         'title': "Tests comments in most combinations",
         'input': [[]],
         'output': [[100] * 5 + [700] * 5 + [120000] * 5 + [100] * 5 + [1] * 5]
+    },
+    'basic/ugly_formatting.imp': {
+        'title': "Ugly code formatting, test for flex",
+        'input': [[]],
+        'output': [[1, 2, 3]]
     },
     'comments/comments.imp': {
         'title': "Tests comments in most combinations",
@@ -345,6 +360,21 @@ main = {
             [1111231111]
         ],
         'output': [[1], [1], [1], [1], [1], [0], [0], [0]]
+    },
+    'algorithms/merge.imp': {
+        'title': "Algorithm for merging two sorted arrays",
+        'input': [
+            [1, 3, 5, 7, 9, 0, 2, 4, 6, 8, 0],
+            get_sorted_arrays(10, 10),
+            get_sorted_arrays(100, 100),
+            get_sorted_arrays(2000, 5000)
+        ],
+        'output': [
+            [1, 2, 3, 4, 5, 6, 7, 8, 9],
+            sorted(get_sorted_arrays(10, 10))[2:],
+            sorted(get_sorted_arrays(100, 100))[2:],
+            sorted(get_sorted_arrays(2000, 5000))[2:]
+        ]
     },
     'old/numbers.imp': {
         'title': "Test for declaring reading and assigning variables",
