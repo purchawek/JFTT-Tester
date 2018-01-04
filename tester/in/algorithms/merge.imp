@@ -1,0 +1,51 @@
+VAR
+	a[10000] b[10000] c[20000] lena lenb lenc tmp
+BEGIN
+    lena := 0;
+    lenb := 0;
+    lenc := 0;
+
+    READ tmp;
+    WHILE tmp <> 0 DO
+        lena := lena + 1;
+        a[lena] := tmp;
+        READ tmp;
+    ENDWHILE
+
+    READ tmp;
+    WHILE tmp <> 0 DO
+        lenb := lenb + 1;
+        b[lenb] := tmp;
+        READ tmp;
+    ENDWHILE
+
+    tmp := lena * lenb;
+    WHILE tmp > 0 DO
+        IF a[lena] > b[lenb] THEN
+            c[lenc] := a[lena];
+            lena := lena - 1;
+        ELSE
+            c[lenc] := b[lenb];
+            lenb := lenb - 1;   
+        ENDIF
+        lenc := lenc + 1;
+        tmp := lena * lenb;
+    ENDWHILE
+
+    WHILE lena > 0 DO
+        c[lenc] := a[lena];
+        lena := lena - 1;
+        lenc := lenc + 1;
+    ENDWHILE
+
+    WHILE lenb > 0 DO
+        c[lenc] := b[lenb];
+        lenb := lenb - 1;
+        lenc := lenc + 1;
+    ENDWHILE
+
+    lenc := lenc - 1;
+    FOR i FROM lenc DOWNTO 0 DO
+        WRITE c[i];
+    ENDFOR
+END
