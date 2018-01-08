@@ -5,17 +5,11 @@ import string
 import subprocess
 import sys
 
-vars_ = {x: random.randint(3,15) for x in 'abcde'}
 tabs = {'ta': 2, 'tb': 3}
+vars_ = None
+vars_tabs = None
 
-vars_tabs = {'{}[{}]'.format(k, i): random.randint(1,10)  for k, n in tabs.items() for i in range(n)}
-vars_tabs.update(vars_)
-
-# wtf.....
-for v in vars_tabs.values():
-    v %= 1000000
-
-consts = {str(x): x for x in [0,2,4,8,16,1,3]}
+consts = {str(x): x for x in [0, 2, 4, 8, 16, 1, 3]}
 
 
 Value = collections.namedtuple('Value', 'const, key')
@@ -56,7 +50,8 @@ def gen_expression():
     a = gen_value()
     b = gen_value()
 
-    operations = '%/*-+'
+    #  operations = '%/*-+'
+    operations = '%*-+'
     operation = random.choice(operations)
     func = lambda : execute_operation(target, operation, a, b)
     instructions = ["{} := {} {} {};".format(target.key,\
@@ -134,7 +129,9 @@ def gen_commands(size=5):
     return cmds
 
 def run():
+    #  print("([3] {})".format(vars_tabs.items()))
     cmds = gen_commands()
+    #  print("([4] {})".format(vars_tabs.items()))
     code = ['VAR']
     code += ['  ' + ' '.join(vars_.keys()) + ' ' + ' '.join(['{}[{}]'.format(t, size) for t, size in tabs.items()])]
     code += ['BEGIN']
@@ -152,6 +149,11 @@ def run():
     return '\n'.join(code), result
 
 def test():
+    global vars_tabs, vars_
+    vars_tabs = {'{}[{}]'.format(k, i): random.randint(1,10)  for k, n in tabs.items() for i in range(n)}
+    vars_ = {x: random.randint(3,15) for x in 'abcde'}
+    vars_tabs.update(vars_)
+    #  print("([2] {})".format(vars_tabs.items()))
     code, result = run()
 
     with open('/tmp/test.in', 'w+') as f:
