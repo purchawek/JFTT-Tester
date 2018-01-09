@@ -1,4 +1,5 @@
 #!/bin/python3
+from time import sleep
 import random
 import collections
 import string
@@ -153,23 +154,21 @@ def test():
     vars_tabs = {'{}[{}]'.format(k, i): random.randint(1,10)  for k, n in tabs.items() for i in range(n)}
     vars_ = {x: random.randint(3,15) for x in 'abcde'}
     vars_tabs.update(vars_)
-    #  print("([2] {})".format(vars_tabs.items()))
     code, result = run()
 
     with open('/tmp/test.in', 'w+') as f:
         f.write(code)
-    
-    run_cmd = '{} <<< "{}" > /tmp/test.out'.format(compi, code)
-    subprocess.Popen(run_cmd, shell=True, stdout=subprocess.PIPE).stdout.read()
 
-    run_cmd = '{} /tmp/test.out | grep ">"'.format(interpreter)
-    out = subprocess.Popen(run_cmd, shell=True, stdout=subprocess.PIPE).stdout.read()
-    out = out.decode('UTF-8')
+    with open('/tmp/test.out', 'w+') as fout:
+        subprocess.run(compi, input=code.encode(), stdout=fout)
+    sleep(0.01)
+    out = subprocess.check_output([interpreter, '/tmp/test.out']).decode('UTF-8')
+    out = [int(line.split('>')[1].strip())
+            for line in out.split('\n')
+            if len(line.split('>')) > 1]
     general_result = True
-    for i, line in enumerate(out.split('\n')):
-        if line[2:]:
-            #  print(line[2:], ' = ', result[i])
-            general_result &= (line[2:]==str(result[i]))
+    for i, line in enumerate(out):
+            general_result &= (line==result[i])
     return general_result
 
 if __name__ == "__main__":
