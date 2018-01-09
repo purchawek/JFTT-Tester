@@ -130,9 +130,7 @@ def gen_commands(size=5):
     return cmds
 
 def run():
-    #  print("([3] {})".format(vars_tabs.items()))
     cmds = gen_commands()
-    #  print("([4] {})".format(vars_tabs.items()))
     code = ['VAR']
     code += ['  ' + ' '.join(vars_.keys()) + ' ' + ' '.join(['{}[{}]'.format(t, size) for t, size in tabs.items()])]
     code += ['BEGIN']
@@ -154,21 +152,24 @@ def test():
     vars_tabs = {'{}[{}]'.format(k, i): random.randint(1,10)  for k, n in tabs.items() for i in range(n)}
     vars_ = {x: random.randint(3,15) for x in 'abcde'}
     vars_tabs.update(vars_)
+    if any(x > 1000 for x in vars_tabs.values()):
+        print('GOOOOOOOOOOOWNO')
+
     code, result = run()
+
 
     with open('/tmp/test.in', 'w+') as f:
         f.write(code)
 
     with open('/tmp/test.out', 'w+') as fout:
         subprocess.run(compi, input=code.encode(), stdout=fout)
-    sleep(0.01)
-    out = subprocess.check_output([interpreter, '/tmp/test.out']).decode('UTF-8')
+    out_raw = subprocess.check_output([interpreter, '/tmp/test.out']).decode('UTF-8')
     out = [int(line.split('>')[1].strip())
-            for line in out.split('\n')
+            for line in out_raw.split('\n')
             if len(line.split('>')) > 1]
     general_result = True
     for i, line in enumerate(out):
-            general_result &= (line==result[i])
+            general_result &= (line == result[i])
     return general_result
 
 if __name__ == "__main__":
