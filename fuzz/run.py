@@ -152,11 +152,7 @@ def test():
     vars_tabs = {'{}[{}]'.format(k, i): random.randint(1,10)  for k, n in tabs.items() for i in range(n)}
     vars_ = {x: random.randint(3,15) for x in 'abcde'}
     vars_tabs.update(vars_)
-    if any(x > 1000 for x in vars_tabs.values()):
-        print('GOOOOOOOOOOOWNO')
-
     code, result = run()
-
 
     with open('/tmp/test.in', 'w+') as f:
         f.write(code)
