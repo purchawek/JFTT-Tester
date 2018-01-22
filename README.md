@@ -2,9 +2,17 @@
 Prosty tester dla kompilatorów na JFTT 2017
 
 ### Co to robi? ###
+Tester składa się z dwóch części:
+**Tester**
+
 Przy pomocy podanego kompilatora (testowanego) kompiluje przykładowe pliki z katalogu **./in**, a następnie porównuje wyniki z interpretera dla tak otrzymanego pseudo-assemblera z z oczekiwanymi. Na razie testów nie ma zbyt wiele, ale łatwo dorabia się kolejne
 
 W sytuacji gdy któryś test się wysypie, drukowane jest info o tym, który to test. Zwracana jest też ogólna informacja o powodzie niepowodzenia (błąd kompilacji, niewłaściwa zwracana wartość, rzucony wyjątek)
+
+
+**Fuzzer (by Piotr Piotr)**
+
+W skrócie - testuje tak długo aż coś się wywali - generuje losowe kody źródłowe, wrzuca w kompilator, porównuje z oczekiwanym wynikiem. Metoda sprawdzania identyczna jak w testerze, ale testy są prostsze. Pozwala wychwycić więcej corner-case'ów dla warunków logicznych i operacji arytmetycznych. Nie testuje pętli *while*.
 
 
 ### Czego to nie robi? (jeszcze) ###
@@ -18,8 +26,15 @@ W sytuacji gdy któryś test się wysypie, drukowane jest info o tym, który to 
 
 
 ### Jak to uruchomić? ###
-**python3 tester.py**
+**Tester**
+`python3 tester.py --compiler <ścieżka_do_kompilatora> --interpreter <ścieżka_do_interpretera>`
 Program musi zostać uruchomiony dokładnie w tym katalogu, w którym jest plik **tester.py**, bo inaczej względne ścieżki wybuchną. Po wszelkie info odsyłam do **--help**
+
+**Fuzzer**
+`python3 fuzz/run.py <ścieżka_do_kompilatora> <ścieżka_do_interpretera>`
+Fuzzer musi być uruchomiony z katalogu jak powyżej, bo inaczej wybuchnie.
+
+Mogliśmy zrobić jednolity interfejs do obu programów, ale ~~nam się nie chciało~~ mieliśmy bardzo dużo pracy.
 
 ### Żaden test mi nie przechodzi, pomocy! ###
 Obecnie wspierane są trzy tryby działania kompilatora, każdy z nich zakłada, że kod źródłowy jest podawany na stdin:
